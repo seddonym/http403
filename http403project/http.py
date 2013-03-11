@@ -47,8 +47,8 @@ class HttpExceptionMiddleware(object):
     <TITLE>
     {% if message %}
         {{message}}
-    {% else %}
-    Sorry {{w3cname}} error to {{ request.META.PATH }}.
+    {% else %}: {{ request.path }}
+    {{ w3cname }}
     {% endif%}
     </TITLE>
   </HEAD>
@@ -57,7 +57,7 @@ class HttpExceptionMiddleware(object):
     <p>{% if message %}
         {{message}}
     {% else %}
-    Sorry {{w3cname}} error to {{ request.META.PATH }}.
+    Sorry, you're not allowed to do that.
     {% endif%}</p>
   </BODY>
 </HTML>""")
@@ -65,7 +65,7 @@ class HttpExceptionMiddleware(object):
         # now use context and render template      
         c = RequestContext(request, {
         'message': exception.message,
-        'w3cname': httplib.responses.get(exception.status, str(exception.status))
+        'w3cname': httplib.responses.get(exception.status, str(exception.status),
         })
       
         return HttpResponse(t.render(c), status=exception.status)
