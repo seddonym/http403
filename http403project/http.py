@@ -47,8 +47,8 @@ class HttpExceptionMiddleware(object):
     <TITLE>
     {% if message %}
         {{message}}
-    {% else %}: {{ request.path }}
-    {{ w3cname }}
+    {% else %}
+        {{ w3cname }} : {{ request.META.PATH }}
     {% endif%}
     </TITLE>
   </HEAD>

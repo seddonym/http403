@@ -9,7 +9,7 @@
     <h2 style="color: red; text-decoration: underline;">{% trans "Access denied."%}</h2>
     <p style="color: white; background: #c3c3c3; padding: 30px; font-weight: bold;">
     {% if message %}{{ message }}{% else %}
-      {% blocktrans with request.META.PATH_INFO as path %}Sorry, you are not allowed to do that.{% endblocktrans %}
+      {% blocktrans %}Sorry, you are not allowed to do that.{% endblocktrans %}
     {% endif %}</p>
   </BODY>
 </HTML>
