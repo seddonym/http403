@@ -8,3 +8,5 @@ This will be integrated with django-response-helpers
 https://github.com/chronossc/django-response-helpers/
 https://github.com/imtapps/django-response-helpers
 http://pypi.python.org/pypi/django-response-helpers
+
+Forked by seddonym (David Seddon) so that it can be installed using pip. 
